@@ -13,7 +13,7 @@ export default props => {
         <KeyboardAvoidingView style={[Estilo.loginContainer]}>
             <View style={[Estilo.loginContainer]}>
                 <Image source={require('../assets/logo.png')} style={Estilo.imagemLogo}></Image>
-                <Text>Form Login</Text>
+                {/*<Text>Form Login</Text>*/}
                 <TextInput 
                     style={Estilo.loginTextInput}
                     placeholder="Digite o login..."
@@ -30,7 +30,10 @@ export default props => {
                 />
                 <Text style={Estilo.loginForgotPassword}>Esqueceu a sua Senha ?</Text>
 
-                <TouchableOpacity style={Estilo.loginButton} >
+                <TouchableOpacity 
+                    style={Estilo.loginButton} 
+                    onPress={() => props.navigation.navigate("UserList")}
+                >
                     <Text>LOGIN</Text>
                 </TouchableOpacity>
 
