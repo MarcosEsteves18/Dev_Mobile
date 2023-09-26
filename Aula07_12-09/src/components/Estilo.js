@@ -15,10 +15,10 @@ export default StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#003f5c'
+        backgroundColor: '#4da6e5'
     },
     loginTextInput:{
-        backgroundColor: "#465881",
+        backgroundColor: "#d2e9f9",
         width: 300,
         height: 55,
         marginTop: 30,
@@ -38,10 +38,26 @@ export default StyleSheet.create({
         borderRadius: 30,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:'#3cb371',
+        backgroundColor:'#8bc63f',
     },
     imagemLogo:{
         width: 256,
         height: 256,
     },
+    formInputDescription:{
+        fontSize: 22,
+    },
+    formInput:{
+        fontSize: 22,
+        backgroundColor: '#dcdcdc'
+    },
+    formContainer:{
+        marginLeft: 20,
+        marginTop: 5,
+        marginRight: 22,
+    },  
+    formButtonSubmit:{
+        margin: 20,
+    },
+
 })

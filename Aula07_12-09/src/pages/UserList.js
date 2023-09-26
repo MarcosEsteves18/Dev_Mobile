@@ -1,17 +1,26 @@
 import { FlatList, Text, View, Alert} from "react-native";
-import users from "../data/users";
 import {Avatar, ListItem} from '@rneui/themed';
+import UserContext from "../context/UserContext";
+import { useContext } from "react";
  
 
 
 export default props => {
+    const {state, dispatch} = useContext(UserContext)
+    //console.warn(Object.keys(cont.state))
+
+
     function deleteConfirm(user){
         Alert.alert('Excluir usuário!', 'Tem certeza que deseja excluir o usuário?', 
             [
               {
                 text: "Sim",
                 onPress(){
-                    console.warn("Excluido o id: " + user.id)
+                    //console.warn("Excluido o id: " + user.id)
+                    dispatch({
+                        type: 'deleteUser',
+                        payload: user
+                    })
                 }
               },
               {
@@ -58,7 +67,7 @@ export default props => {
     return(
         <View>
             <FlatList 
-                data={users}
+                data={state.users}
                 keyExtractor={user => user.id}
                 renderItem={getUserItem}
             />

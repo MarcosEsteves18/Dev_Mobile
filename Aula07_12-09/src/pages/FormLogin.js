@@ -1,6 +1,7 @@
 import { View, Text, Image, TouchableOpacity, TextInput, KeyboardAvoidingView  } from "react-native";
 import Estilo from "../components/Estilo";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import UserContext from "../context/UserContext";
 
 
 
@@ -9,6 +10,7 @@ import { useState } from "react";
 export default props => {
     [valorLogin, setValorLogin] = useState("");
     [valorSenha, setValorSenha] = useState("");
+    const {state} = useContext(UserContext)
     return(
         <KeyboardAvoidingView style={[Estilo.loginContainer]}>
             <View style={[Estilo.loginContainer]}>
@@ -32,7 +34,15 @@ export default props => {
 
                 <TouchableOpacity 
                     style={Estilo.loginButton} 
-                    onPress={() => props.navigation.navigate("UserList")}
+                    onPress={() => {
+                        const userLogado = state.users.filter(u => u.login === valorLogin)[0]
+                        if(userLogado){
+                            userLogado.password == valorSenha ? props.navigation.navigate("UserList") : console.warn("Usuário e/ou Senha incorreta!")
+                        }else{
+                            console.warn("Usuário e/ou Senha incorreta!")
+                        }
+                        {/*props.navigation.navigate("UserList")*/}
+                    }}
                 >
                     <Text>LOGIN</Text>
                 </TouchableOpacity>

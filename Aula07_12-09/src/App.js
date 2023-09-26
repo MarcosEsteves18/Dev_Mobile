@@ -6,12 +6,14 @@ import FormLogin from "./pages/FormLogin";
 import UserList from "./pages/UserList";
 import UserForm from "./pages/UserForm";
 import {Button, Icon} from '@rneui/base'
+import { UserProvider } from "./context/UserContext";
 
 
 const Stack = createNativeStackNavigator()
 
 export default props => (
-    <NavigationContainer>
+    <UserProvider>
+        <NavigationContainer>
         <Stack.Navigator 
             initialRouteName="FormLogin"
             //screenOptions={{headerShown:false}}
@@ -50,13 +52,16 @@ export default props => (
 
 
         </Stack.Navigator>
-    </NavigationContainer>
+        </NavigationContainer>
+    </UserProvider>
+
+    
     
 )
 
 const minhaScreenOptions = {
     headerStyle:{
-        backgroundColor: '#003f5c',
+        backgroundColor: '#79bcec',
     },
     headerTintColor:'#fff',
     headerTitleStyle:{
